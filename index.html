@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rediet Tilahun — Software Engineering Student</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14140f;
+    --bg-raised:#1b1b14;
+    --line:#33321f;
+    --cream:#ede9df;
+    --cream-dim:#a8a493;
+    --gold:#c89b4c;
+    --teal:#6f9e8d;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:17px;
+    line-height:1.65;
+  }
+  a{color:var(--gold);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+  ::selection{background:var(--gold); color:#14140f;}
+
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  header.top{
+    padding:64px 0 40px;
+    border-bottom:1px solid var(--line);
+  }
+  .mono-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--teal);
+    letter-spacing:.02em;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    line-height:1.05;
+    margin:14px 0 8px;
+    color:var(--cream);
+  }
+  .role{
+    font-size:1.15rem;
+    color:var(--cream-dim);
+    max-width:46ch;
+  }
+  .lede{
+    margin-top:22px;
+    max-width:58ch;
+    color:var(--cream-dim);
+    font-size:1rem;
+  }
+  .lede strong{color:var(--cream); font-weight:600;}
+
+  nav.links{
+    margin-top:26px;
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+  }
+  nav.links a{
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+  }
+  nav.links a:hover{border-bottom-color:var(--gold);}
+
+  section{
+    padding:56px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{border-bottom:none;}
+
+  .section-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--gold);
+    margin-bottom:22px;
+  }
+
+  .now-box{
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    border-left:3px solid var(--teal);
+    padding:20px 22px;
+    font-size:.98rem;
+    color:var(--cream-dim);
+  }
+  .now-box strong{color:var(--cream);}
+
+  /* Journey log entries */
+  .entry{
+    display:grid;
+    grid-template-columns:88px 1fr;
+    gap:20px;
+    padding:26px 0;
+    border-top:1px solid var(--line);
+  }
+  .entry:first-child{border-top:none; padding-top:0;}
+  .entry-day{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--cream-dim);
+    padding-top:4px;
+  }
+  .entry-day span{display:block; color:var(--gold); font-size:15px; margin-bottom:2px;}
+  .entry h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.25rem;
+    margin:0 0 8px;
+    color:var(--cream);
+  }
+  .entry p{
+    margin:0 0 10px;
+    color:var(--cream-dim);
+    font-size:.97rem;
+    max-width:56ch;
+  }
+  .stack{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--teal);
+  }
+  .entry a.repo{
+    display:inline-block;
+    margin-top:8px;
+    font-size:.9rem;
+    text-decoration:none;
+    border-bottom:1px solid var(--gold);
+  }
+
+  /* skills */
+  .skill-rows{display:flex; flex-direction:column; gap:14px;}
+  .skill-row{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:16px;
+    align-items:baseline;
+    font-size:.95rem;
+  }
+  .skill-row .k{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--cream-dim);
+    font-size:13px;
+  }
+  .skill-row .v{color:var(--cream);}
+
+  footer{
+    padding:48px 0 64px;
+  }
+  footer .mono-tag{display:block; margin-bottom:10px;}
+  footer .contacts{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    margin-top:6px;
+  }
+  footer .contacts a{text-decoration:none; border-bottom:1px solid var(--gold); padding-bottom:1px;}
+  footer .sign{
+    margin-top:36px;
+    color:var(--cream-dim);
+    font-size:.85rem;
+  }
+
+  @media (max-width:520px){
+    .entry{grid-template-columns:1fr; gap:6px;}
+    .skill-row{grid-template-columns:1fr; gap:2px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="mono-tag">software engineering — arba minch university</div>
+    <h1>Rediet Tilahun</h1>
+    <p class="role">Software engineering student building a real foundation — one shipped project and one solved problem at a time.</p>
+    <p class="lede">I'm self-taught, based in Ethiopia, and currently deepening my <strong>Python</strong> and <strong>Java</strong> fundamentals through daily algorithm practice and hands-on projects — documenting the whole process in public as I work toward my first role in software engineering.</p>
+    <nav class="links">
+      <a href="#now">now</a>
+      <a href="#journey">journey</a>
+      <a href="#skills">skills</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </header>
+
+  <section id="now">
+    <div class="section-label">// currently</div>
+    <div class="now-box">
+      <strong>Python Development Intern</strong> at Codveda Technologies — building a series of applied projects, from CLI tools to live API integrations, and now a full Django web application with user authentication. Working through Data Structures &amp; Algorithms daily alongside it.
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="section-label">// journey log</div>
+
+    <div class="entry">
+      <div class="entry-day"><span>latest</span>in progress</div>
+      <div>
+        <h3>Task Manager — Django Web App</h3>
+        <p>A full-stack task manager with user registration, login/logout, and per-user task ownership — my first real web application, built from scratch to understand models, views, templates, and authentication.</p>
+        <div class="stack">python · django · sqlite</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-day"><span>ongoing</span>internship</div>
+      <div>
+        <h3>Codveda Python Development</h3>
+        <p>A progression of applied Python projects: a calculator with error handling, a randomized guessing game, a file-based word counter, a persistent to-do list app, a live weather app integrating an external API, and a web scraper exporting real-time data to CSV.</p>
+        <div class="stack">python · requests · beautifulsoup · json</div>
+        <a class="repo" href="https://github.com/Redu0462/codveda-python-development">view repository →</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-day"><span>shipped</span>solo project</div>
+      <div>
+        <h3>DSA Progress Tracker</h3>
+        <p>A command-line tool that logs and permanently tracks my algorithm practice — built to understand file persistence and data structures while solving the exact problem it was designed to track.</p>
+        <div class="stack">python · json</div>
+        <a class="repo" href="https://github.com/Redu0462/DSA-tracker">view repository →</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-day"><span>shipped</span>team project</div>
+      <div>
+        <h3>Book Inventory &amp; Price Tracker</h3>
+        <p>A console-based inventory system built with a five-person team, applying core OOP principles — inheritance, polymorphism, custom exceptions, and file I/O.</p>
+        <div class="stack">java · oop</div>
+        <a class="repo" href="https://github.com/Redu0462/Book-Inventory-and-Price-Tracker-">view repository →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-label">// working with</div>
+    <div class="skill-rows">
+      <div class="skill-row"><div class="k">languages</div><div class="v">Python, Java</div></div>
+      <div class="skill-row"><div class="k">web</div><div class="v">Django, REST APIs</div></div>
+      <div class="skill-row"><div class="k">tools</div><div class="v">Git, GitHub, SQLite</div></div>
+      <div class="skill-row"><div class="k">foundations</div><div class="v">Data Structures &amp; Algorithms, OOP, Problem Solving</div></div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="mono-tag">// get in touch</div>
+    <p class="lede" style="margin-top:0;">Open to internships, collaboration, and conversations with other developers building in public.</p>
+    <div class="contacts">
+      <a href="https://github.com/Redu0462">GitHub</a>
+      <a href="https://www.linkedin.com/in/rediet-tilahun">LinkedIn</a>
+      <a href="mailto:enu7tile@gmail.com">Email</a>
+    </div>
+    <p class="sign">Built while learning — this page will keep changing as the work does.</p>
+  </footer>
+</div>
+
+</body>
+</html>
