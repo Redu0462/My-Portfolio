@@ -12,3 +12,8 @@ body {
   background: var(--bg);
   color: var(--cream);
 }
+body {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
