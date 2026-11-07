@@ -25,3 +25,12 @@ body {
   padding: 0 28px;
 }
 </div>
+header {
+  padding: 60px 0 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 10px 0;
+}
