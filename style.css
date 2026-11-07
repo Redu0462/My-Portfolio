@@ -44,3 +44,10 @@ nav ul {
 nav a {
   text-decoration: none;
 }
+a {
+  color: var(--gold);
+}
+
+a:hover {
+  text-decoration: underline;
+}
