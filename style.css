@@ -51,3 +51,12 @@ a {
 a:hover {
   text-decoration: underline;
 }
+section {
+  padding: 50px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+section h2 {
+  color: var(--gold);
+  font-size: 1rem;
+}
