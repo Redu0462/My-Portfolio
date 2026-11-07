@@ -34,3 +34,13 @@ h1 {
   font-size: 3rem;
   margin: 10px 0;
 }
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 22px;
+}
+
+nav a {
+  text-decoration: none;
+}
