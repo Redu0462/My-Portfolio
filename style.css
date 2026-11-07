@@ -60,3 +60,15 @@ section h2 {
   color: var(--gold);
   font-size: 1rem;
 }
+.entry {
+  padding: 20px 0;
+}
+
+.entry h3 {
+  margin: 0 0 8px;
+}
+
+.entry p {
+  color: var(--dim);
+  margin: 0 0 8px;
+}
